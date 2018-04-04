@@ -1,6 +1,10 @@
 FROM suse/sles12sp3:latest
-# Import the crt file of our private SMT server
-ADD http://smt.test.lan/smt.crt /etc/pki/trust/anchors/smt.crt
-RUN update-ca-certificates
-RUN zypper ref -s
-RUN zypper -n in vim
+MAINTAINER Tux
+RUN zypper ref && zypper in -f example-1.0.0-0
+COPY application.rpm /tmp/
+
+RUN zypper --non-interactive in /tmp/application.rpm
+
+ENTRYPOINT ["/etc/bin/application"]
+
+CMD ["-i"]
