@@ -1,4 +1,6 @@
-FROM registry.scc.suse.de/suse/sles15:ga-rc1
+#FROM registry.scc.suse.de/suse/sles15:ga-rc1
+FROM buildhost.caasp.lab:5000/sles12sp3:latest
+
 ENV PRODUCT SLE_15
 ENV BUILT_AT "Wed Feb 21 15:32 CET 2018"
 
